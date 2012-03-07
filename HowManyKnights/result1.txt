@@ -1,0 +1,17 @@
+1 knight may be placed on a 1 row 1 column board.
+8 knights may be placed on a 4 row 4 column board.
+10 knights may be placed on a 4 row 5 column board.
+10 knights may be placed on a 5 row 4 column board.
+13 knights may be placed on a 5 row 5 column board.
+500 knights may be placed on a 1 row 500 column board.
+4 knights may be placed on a 2 row 2 column board.
+6 knights may be placed on a 2 row 5 column board.
+8 knights may be placed on a 2 row 6 column board.
+4 knights may be placed on a 2 row 3 column board.
+13 knights may be placed on a 5 row 5 column board.
+14 knights may be placed on a 4 row 7 column board.
+50 knights may be placed on a 10 row 10 column board.
+125000 knights may be placed on a 500 row 500 column board.
+125250 knights may be placed on a 501 row 500 column board.
+125250 knights may be placed on a 500 row 501 column board.
+125501 knights may be placed on a 501 row 501 column board.
