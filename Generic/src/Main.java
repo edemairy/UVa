@@ -1,4 +1,6 @@
 
+import java.io.BufferedReader;
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.Formatter;
 import java.util.Locale;
@@ -42,4 +44,20 @@ public class Main {
         return result;
     }
 
+        private static int readInt(BufferedReader reader) throws IOException {
+        int result = 0;
+        char currentChar = (char) reader.read();
+        while ((currentChar == ' ') || (currentChar == '\n')) {
+            currentChar = (char) reader.read();
+        }
+        while ((currentChar >= '0') && (currentChar <= '9')) {
+            result = result * 10 + currentChar - '0';
+            currentChar = (char) reader.read();
+        }
+        return result;
+    }
+
+    private static char readChar(BufferedReader reader) throws IOException {
+        return (char) reader.read();
+    }
 }
