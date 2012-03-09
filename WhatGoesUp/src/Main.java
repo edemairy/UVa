@@ -1,4 +1,7 @@
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -18,10 +21,14 @@ public class Main {
      */
     public static void main(String[] args) {
         logger.setLevel(Level.OFF);
-        Scanner scanner = new Scanner(System.in);
+
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         ArrayList<Integer> data = new ArrayList<Integer>();
-        while (scanner.hasNextInt()) {
-            data.add(scanner.nextInt());
+        try {
+            while (true) {
+                data.add(readInt(reader));
+            }
+        } catch (IOException e) {
         }
         result.append(oneTestCase(data));
 //        result.append('\n');
@@ -29,30 +36,23 @@ public class Main {
     }
 
     private static StringBuilder oneTestCase(ArrayList<Integer> data) {
+        ArrayList<Integer> lis = new ArrayList<Integer>();
         int[] length = new int[data.size()];
         Arrays.fill(length, 1);
-        int[] pred = new int[data.size()];
-        for (int i = 0; i < data.size(); ++i) {
-            pred[i] = i;
-        }
+        TreeMap<Integer, Integer> pred = new TreeMap<Integer, Integer>();
+
 
         for (int i = 0; i < data.size(); ++i) {
-            int bestj = -1;
-            int bestl = 0;
-            for (int j = 0; j < i; ++j) {
-                if (data.get(j) < data.get(i)) {
-                    if (length[j] > bestl) {
-                        bestj = j;
-                        bestl = length[j];
-                    }
+            int ip = Collections.binarySearch(lis, data.get(i));
+            if (ip < 0) {
+                ip = -(ip + 1);
+                if (ip == lis.size()) {
+                    lis.add(data.get(i));
+                } else {
+                    lis.set(ip, data.get(i));
                 }
-            }
-            if (bestj == -1) {
-                length[i] = 1;
-                pred[i] = -1;
-            } else {
-                length[i] = bestl + 1;
-                pred[i] = bestj;
+                pred.put(data.get(i), ((ip == 0) ? -1 : lis.get(ip - 1)));
+                length[i] = ip + 1;
             }
         }
 
@@ -68,13 +68,14 @@ public class Main {
         }
         result.append(bestl).append('\n').append('-').append('\n');
         Stack<Integer> rStack = new Stack<Integer>();
+        int elt = data.get(posM);
         whilet:
         while (true) {
-            rStack.push(data.get(posM));
-            if (pred[posM] == -1) {
+            rStack.push(elt);
+            if (pred.get(elt) == -1) {
                 break whilet;
             }
-            posM = pred[posM];
+            elt = pred.get(elt);
         }
         while (!rStack.isEmpty()) {
             result.append(rStack.pop()).append('\n');
@@ -85,5 +86,35 @@ public class Main {
 //        }
 //        result.append(formatter.out());
         return result;
+    }
+
+    private static int readInt(BufferedReader reader) throws IOException {
+        int result = 0;
+        boolean positive = true;
+        char currentChar = (char) reader.read();
+
+        while ((currentChar == ' ') || (currentChar == '\n')) {
+            currentChar = (char) reader.read();
+        }
+        if (currentChar == (char) -1) {
+            throw new IOException("end of stream");
+        }
+        if (currentChar == '-') {
+            positive = false;
+            currentChar = (char) reader.read();
+        }
+        while ((currentChar >= '0') && (currentChar <= '9')) {
+            result = result * 10 + currentChar - '0';
+            currentChar = (char) reader.read();
+        }
+        if (positive) {
+            return result;
+        } else {
+            return -result;
+        }
+    }
+
+    private static char readChar(BufferedReader reader) throws IOException {
+        return (char) reader.read();
     }
 }
