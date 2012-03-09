@@ -1,4 +1,7 @@
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -16,46 +19,65 @@ public class Main {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         logger.setLevel(Level.OFF);
-        Scanner scanner = new Scanner(System.in);
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-        nbTC = scanner.nextInt();
+        nbTC = readInt(reader);
 
         for (int tc = 1; tc <= nbTC; ++tc) {
-            result.append(oneTestCase(scanner));
+            result.append(oneTestCase(reader));
             result.append('\n');
         }
         System.out.print(result);
     }
     private static HashMap<Character, Integer> chars = new HashMap<Character, Integer>(100);
 
-    private static StringBuilder oneTestCase(Scanner scanner) {
-        int nbLetters = scanner.nextInt();
+    private static StringBuilder oneTestCase(BufferedReader reader) throws IOException {
+        int nbLetters = readInt(reader);
         chars.clear();
 
         for (int i = 0; i < nbLetters; ++i) {
-            chars.put(scanner.next().charAt(0), scanner.nextInt());
+            chars.put(readChar(reader), readInt(reader));
         }
 
-        int nbLines = scanner.nextInt();
-        scanner.nextLine();
+        int nbLines = readInt(reader);
         long val = 0;
+        fori:
         for (int i = 0; i < nbLines; ++i) {
-            String currentLine = scanner.nextLine();
-            for (int c = 0; c < currentLine.length(); ++c) {
-                char currenChar = currentLine.charAt(c);
-                val += (chars.containsKey(currenChar)) ? chars.get(currenChar) : 0;
+            while (true) {
+                char currentChar = readChar(reader);
+                if (currentChar == '\n') {
+                    continue fori;
+                }
+                val += (chars.containsKey(currentChar)) ? chars.get(currentChar) : 0;
             }
         }
 
         Formatter formatter = new Formatter();
-        formatter.format("%.2f$", val / 100.0);
+        formatter.format("%d.%02d$", val / 100, val % 100);
 
         StringBuilder result = new StringBuilder();
 //        for (int i = 0; i < 5; ++i) {
 //        }
         result.append(formatter.out());
         return result;
+    }
+
+    private static int readInt(BufferedReader reader) throws IOException {
+        int result = 0;
+        char currentChar = (char) reader.read();
+        while ((currentChar == ' ') || (currentChar == '\n')) {
+            currentChar = (char) reader.read();
+        }
+        while ((currentChar >= '0') && (currentChar <= '9')) {
+            result = result * 10 + currentChar - '0';
+            currentChar = (char) reader.read();
+        }
+        return result;
+    }
+
+    private static char readChar(BufferedReader reader) throws IOException {
+        return (char) reader.read();
     }
 }
