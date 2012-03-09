@@ -44,7 +44,7 @@ public class Main {
         return result;
     }
 
-        private static int readInt(BufferedReader reader) throws IOException {
+    private static int readInt(BufferedReader reader) throws IOException {
         int result = 0;
         char currentChar = (char) reader.read();
         while ((currentChar == ' ') || (currentChar == '\n')) {
