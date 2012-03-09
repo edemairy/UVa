@@ -36,46 +36,43 @@ public class Main {
     }
 
     private static StringBuilder oneTestCase(ArrayList<Integer> data) {
-        ArrayList<Integer> lis = new ArrayList<Integer>();
+        int[] lis = new int[data.size()];
+        int[] lisIndex = new int[data.size()];
+
         int[] length = new int[data.size()];
         Arrays.fill(length, 1);
+        // index in data, index of predecessor
         TreeMap<Integer, Integer> pred = new TreeMap<Integer, Integer>();
 
-
+        int bip = 0;
         for (int i = 0; i < data.size(); ++i) {
-            int ip = Collections.binarySearch(lis, data.get(i));
+            int ip = Arrays.binarySearch(lis, 0, bip, data.get(i));
             if (ip < 0) {
                 ip = -(ip + 1);
-                if (ip == lis.size()) {
-                    lis.add(data.get(i));
-                } else {
-                    lis.set(ip, data.get(i));
-                }
-                pred.put(data.get(i), ((ip == 0) ? -1 : lis.get(ip - 1)));
+                lis[ip] = data.get(i);
+                lisIndex[ip] = i;
+                pred.put(i, ((ip == 0) ? -1 : lisIndex[ip - 1]));
                 length[i] = ip + 1;
+                bip = Math.max(bip, ip+1);
             }
         }
-
+//        if (true) {
+//            return new StringBuilder();
+//        }
 
         StringBuilder result = new StringBuilder();
-        int posM = 0;
-        int bestl = 0;
-        for (int i = length.length - 1; i >= 0; --i) {
-            if (length[i] > bestl) {
-                posM = i;
-                bestl = length[i];
-            }
-        }
-        result.append(bestl).append('\n').append('-').append('\n');
+        result.append(bip).append('\n').append('-').append('\n');
         Stack<Integer> rStack = new Stack<Integer>();
-        int elt = data.get(posM);
+        int elt = lisIndex[bip-1];
+        int limit = bip;
         whilet:
-        while (true) {
-            rStack.push(elt);
+        while (true && (limit > 0)) {
+            rStack.push(data.get(elt));
             if (pred.get(elt) == -1) {
                 break whilet;
             }
             elt = pred.get(elt);
+            --limit;
         }
         while (!rStack.isEmpty()) {
             result.append(rStack.pop()).append('\n');
