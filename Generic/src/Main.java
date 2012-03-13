@@ -46,15 +46,28 @@ public class Main {
 
     private static int readInt(BufferedReader reader) throws IOException {
         int result = 0;
+        boolean positive = true;
         char currentChar = (char) reader.read();
+
         while ((currentChar == ' ') || (currentChar == '\n')) {
+            currentChar = (char) reader.read();
+        }
+        if (currentChar == (char) -1) {
+            throw new IOException("end of stream");
+        }
+        if (currentChar == '-') {
+            positive = false;
             currentChar = (char) reader.read();
         }
         while ((currentChar >= '0') && (currentChar <= '9')) {
             result = result * 10 + currentChar - '0';
             currentChar = (char) reader.read();
         }
-        return result;
+        if (positive) {
+            return result;
+        } else {
+            return -result;
+        }
     }
 
     private static char readChar(BufferedReader reader) throws IOException {
