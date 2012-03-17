@@ -1,3 +1,5 @@
+
+
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -6,9 +8,9 @@
 import java.io.*;
 import java.net.URISyntaxException;
 import org.junit.AfterClass;
-import org.junit.Test;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 import org.junit.BeforeClass;
+import org.junit.Test;
 
 /**
  *
