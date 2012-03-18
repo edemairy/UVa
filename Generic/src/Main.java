@@ -24,18 +24,18 @@ public class Main {
      */
     public static void main(String[] args) throws IOException {
         logger.setLevel(Level.OFF);
-        Scanner scanner = new Scanner(System.in);
+//        Scanner scanner = new Scanner(System.in);
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         nbTC = readInt(reader);
-        scanner.nextLine();
+//        scanner.nextLine();
         for (int tc = 1; tc <= nbTC; ++tc) {
-            result.append(oneTestCase(scanner));
+            result.append(oneTestCase(reader));
             result.append('\n');
         }
         System.out.print(result);
     }
 
-    private static StringBuilder oneTestCase(Scanner scanner) {
+    private static StringBuilder oneTestCase(BufferedReader reader)  throws IOException {
         Formatter formatter = new Formatter();
         StringBuilder result = new StringBuilder();
 //        for (int i = 0; i < 5; ++i) {
