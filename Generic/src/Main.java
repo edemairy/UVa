@@ -22,11 +22,11 @@ public class Main {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         logger.setLevel(Level.OFF);
         Scanner scanner = new Scanner(System.in);
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        nbTC = scanner.nextInt();
+        nbTC = readInt(reader);
         scanner.nextLine();
         for (int tc = 1; tc <= nbTC; ++tc) {
             result.append(oneTestCase(scanner));
