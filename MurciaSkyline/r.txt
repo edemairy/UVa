@@ -1,0 +1,3 @@
+Case 1. Increasing (5). Decreasing (1).
+Case 2. Increasing (3). Decreasing (2).
+Case 3. Increasing (2). Decreasing (2).
