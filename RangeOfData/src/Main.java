@@ -4,10 +4,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.TreeSet;
 
 /**
  *
@@ -17,24 +13,18 @@ public class Main {
 
     private static int nbTC;
     private static StringBuilder result = new StringBuilder();
-
     /**
      * @param args the command line arguments
      */
     private static int tc;
+
     public static void main(String[] args) throws IOException {
         //        Scanner scanner = new Scanner(System.in);
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in), 65000);
         nbTC = readInt(reader);
         for (tc = 1; tc <= nbTC; ++tc) {
-            if (tc <= 20) {
-                result.append(oneTestCase(reader));
-                result.append("\n");
-            } else {
-                result.append("0\n");
-                throw new IllegalArgumentException();
-                
-            }
+            result.append(oneTestCase(reader));
+            result.append("\n");
         }
         System.out.print(result);
         System.out.flush();
@@ -44,19 +34,11 @@ public class Main {
     private static int[] val = new int[1000001];
 
     private static StringBuilder oneTestCase(BufferedReader reader) throws IOException {
-//        if (tc==20) {
-//            output.append(0);
-//            throw new IllegalArgumentException();
-//        }
         output.setLength(0);
-
-//        for (int i = 0; i < 5; ++i) {
-//            formatter.format("%3d", n[i]);
-//        }
         N = readInt(reader);
-        int M = readInt(reader);        
+        int M = readInt(reader);
         Arrays.fill(val, 0);
-        
+
         for (int i = 0; i < M; ++i) {
             int w = readInt(reader);
             int x = readInt(reader);
@@ -68,19 +50,18 @@ public class Main {
             if (w == 2) {
                 z = -z;
             }
-            
-            if (y < N) {        
+
+            if (y < N) {
                 val[y + 1] += -z;
             }
             val[x] += z;
 
         }
-        
+
         int min = Integer.MAX_VALUE;
         int max = Integer.MIN_VALUE;
         int cv = 0;
-//        TreeSet<Integer> ti = new TreeSet<Integer>(D);
-        for (int i=0; i<=N; ++i) {
+        for (int i = 0; i <= N; ++i) {
             if (i > N) {
                 continue;
             }
