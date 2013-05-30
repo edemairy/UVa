@@ -51,11 +51,11 @@ public class Main {
         for (int p = 0; p < parts.length; ++p) {
             unordered.add(Integer.parseInt(parts[p]));
             formatter.format("%s", parts[p]);
-            if (p!=parts.length-1) {
+            if (p != parts.length - 1) {
                 formatter.format(" ");
             }
         }
-        
+
         formatter.format("\n");
         ArrayList<Integer> ordered = new ArrayList<Integer>(unordered);
         Collections.sort(ordered);
@@ -66,12 +66,18 @@ public class Main {
                 continue;
             } else {
                 if (unordered.get(0) == ordered.get(pos)) {
-                    result.add(convert(pos,sz));
+                    result.add(convert(pos, sz));
                     shuffle(unordered, pos);
                 } else {
-                    int p2 = Collections.binarySearch(unordered, ordered.get(pos));
-                    result.add(convert(p2,sz));
-                    result.add(convert(pos,sz));
+                    int p2;
+                    findp2:
+                    for (p2 = pos - 1; p2 >= 0; --p2) {
+                        if (ordered.get(pos) == unordered.get(p2)) {
+                            break findp2;
+                        }
+                    }
+                    result.add(convert(p2, sz));
+                    result.add(convert(pos, sz));
                     shuffle(unordered, p2);
                     shuffle(unordered, pos);
                 }
@@ -79,9 +85,9 @@ public class Main {
         }
         result.add(0);
 
-        for (int r=0; r<result.size(); ++r) {
+        for (int r = 0; r < result.size(); ++r) {
             formatter.format("%d", result.get(r));
-            if (r!=result.size()-1) {
+            if (r != result.size() - 1) {
                 formatter.format(" ");
             }
         }
