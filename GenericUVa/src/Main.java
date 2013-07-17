@@ -2,12 +2,8 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
 import java.util.Formatter;
 import java.util.Locale;
-import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -15,16 +11,11 @@ import java.util.logging.Logger;
  */
 public class Main {
 
-    private final static Logger logger = Logger.getLogger(Main.class.getName());
     private static int nbTC;
-    private static StringBuilder result = new StringBuilder();
+    private StringBuilder result = new StringBuilder();
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) throws IOException {
-        logger.setLevel(Level.OFF);
-//        Scanner scanner = new Scanner(System.in);
+    public void run() throws IOException {
+        //        Scanner scanner = new Scanner(System.in);
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         nbTC = readInt(reader);
 //        scanner.nextLine();
@@ -35,7 +26,15 @@ public class Main {
         System.out.print(result);
     }
 
-    private static StringBuilder oneTestCase(BufferedReader reader)  throws IOException {
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) throws IOException {
+        Main main = new Main();
+        main.run();
+    }
+
+    private static StringBuilder oneTestCase(BufferedReader reader) throws IOException {
         Formatter formatter = new Formatter(Locale.ENGLISH);
         StringBuilder output = new StringBuilder();
 //        for (int i = 0; i < 5; ++i) {
