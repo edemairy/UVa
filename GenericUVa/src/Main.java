@@ -11,17 +11,24 @@ import java.util.Locale;
  */
 public class Main {
 
-    private static int nbTC;
+    private int nbTC;
     private StringBuilder result = new StringBuilder();
+
+    private static class EndException extends RuntimeException {
+    }
 
     public void run() throws IOException {
         //        Scanner scanner = new Scanner(System.in);
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         nbTC = readInt(reader);
+//         nbTC = Integer.MAX_VALUE;
 //        scanner.nextLine();
-        for (int tc = 1; tc <= nbTC; ++tc) {
-            result.append(oneTestCase(reader));
-            result.append('\n');
+        try {
+            for (int tc = 1; tc <= nbTC; ++tc) {
+                result.append(oneTestCase(reader));
+                result.append('\n');
+            }
+        } catch (EndException e) {
         }
         System.out.print(result);
     }
@@ -34,7 +41,7 @@ public class Main {
         main.run();
     }
 
-    private static StringBuilder oneTestCase(BufferedReader reader) throws IOException {
+    private StringBuilder oneTestCase(BufferedReader reader) throws IOException {
         Formatter formatter = new Formatter(Locale.ENGLISH);
         StringBuilder output = new StringBuilder();
 //        for (int i = 0; i < 5; ++i) {
@@ -45,8 +52,8 @@ public class Main {
         return output;
     }
 
-    private static int readInt(BufferedReader reader) throws IOException {
-        int result = 0;
+    private int readInt(BufferedReader reader) throws IOException {
+        int r = 0;
         boolean positive = true;
         char currentChar = (char) reader.read();
 
@@ -61,17 +68,17 @@ public class Main {
             currentChar = (char) reader.read();
         }
         while ((currentChar >= '0') && (currentChar <= '9')) {
-            result = result * 10 + currentChar - '0';
+            r = r * 10 + currentChar - '0';
             currentChar = (char) reader.read();
         }
         if (positive) {
-            return result;
+            return r;
         } else {
-            return -result;
+            return -r;
         }
     }
 
-    private static char readChar(BufferedReader reader) throws IOException {
+    private char readChar(BufferedReader reader) throws IOException {
         return (char) reader.read();
     }
 }
