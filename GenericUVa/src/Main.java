@@ -78,6 +78,32 @@ public class Main {
         }
     }
 
+    private long readLong(BufferedReader reader) throws IOException {
+        long r = 0;
+        boolean positive = true;
+        char currentChar = (char) reader.read();
+
+        while ((currentChar == ' ') || (currentChar == '\n')) {
+            currentChar = (char) reader.read();
+        }
+        if (currentChar == (char) -1) {
+            throw new IOException("end of stream");
+        }
+        if (currentChar == '-') {
+            positive = false;
+            currentChar = (char) reader.read();
+        }
+        while ((currentChar >= '0') && (currentChar <= '9')) {
+            r = r * 10 + currentChar - '0';
+            currentChar = (char) reader.read();
+        }
+        if (positive) {
+            return r;
+        } else {
+            return -r;
+        }
+    }
+
     private char readChar(BufferedReader reader) throws IOException {
         return (char) reader.read();
     }
