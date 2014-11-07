@@ -50,26 +50,28 @@ public class Main {
 		while (true) {
 			int h = readInt(reader);
 			if (h != 0) {
-				int u = readInt(reader);
-				int d = readInt(reader);
-				int f = readInt(reader);
+				double u = readInt(reader);
+				double d = readInt(reader);
+				double f = readInt(reader);
 
 				h *= 100;
 				u *= 100;
 				d *= 100;
 				f = u * f / 100;
 				int day = 0;
-				int cu = u;
-				int ch = 0;
+				double cu = u;
+				double ch = 0;
 				boolean reached = false;
 				while (ch >= 0 && !reached) {
-					ch += cu;
+					if (cu > 0) {
+						ch += cu;
+					}
 					reached |= (ch > h);
 					ch -= d;
 					cu -= f;
-					day ++;
+					day++;
 				}
-				if (reached){
+				if (reached) {
 					formatter.format("success on day %d\n", day);
 				} else {
 					formatter.format("failure on day %d\n", day);
