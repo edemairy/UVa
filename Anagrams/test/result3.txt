@@ -1,0 +1,14 @@
+carthorse = horse cart
+carthorse = orchestra
+horse cart = orchestra
+i do not know u = ok i now donut
+
+carthorse = horse cart
+carthorse = orchestra
+horse cart = orchestra
+i do not know u = ok i now donut
+
+
+abc = abc
+abc = cba
+abc = cba
