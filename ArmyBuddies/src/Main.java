@@ -1,7 +1,9 @@
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.util.Arrays;
 import java.util.BitSet;
 import java.util.Formatter;
@@ -14,7 +16,6 @@ import java.util.Locale;
 public class Main {
 
 	private int nbTC;
-	private StringBuilder result = new StringBuilder();
 
 	private static class EndException extends RuntimeException {
 	}
@@ -22,17 +23,22 @@ public class Main {
 	public void run() throws IOException {
 		//        Scanner scanner = new Scanner(System.in);
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+		BufferedWriter writer
+			= new BufferedWriter(new OutputStreamWriter(System.out));
+		StringBuilder output = new StringBuilder(25000);
 //        nbTC = readInt(reader);
 		nbTC = Integer.MAX_VALUE;
 //        scanner.nextLine();
 		try {
 			for (int tc = 1; tc <= nbTC; ++tc) {
-				result.append(oneTestCase(reader));
-				result.append("-\n");
+				oneTestCase(reader, output);
+				output.append("-\n");
 			}
 		} catch (EndException e) {
 		}
-		System.out.print(result);
+		writer.write(output.toString());
+		writer.flush();
+		writer.close();
 	}
 
 	/**
@@ -46,23 +52,21 @@ public class Main {
 	private static int[] leftNeighbour = new int[MAX_SOLDIERS + 2];
 	private static int[] rightNeighbour = new int[MAX_SOLDIERS + 2];
 
-	private StringBuilder oneTestCase(BufferedReader reader) throws IOException {
-		Formatter formatter = new Formatter(Locale.ENGLISH);
-		StringBuilder output = new StringBuilder();
+	private void oneTestCase(BufferedReader reader, StringBuilder output) throws IOException {
 //        for (int i = 0; i < 5; ++i) {
 //            formatter.format("%3d", n[i]);
 //        }
 		int nbSoldiers = readInt(reader);
 		int nbReports = readInt(reader);
-		if (nbSoldiers == 0 && nbReports == 0) {
+		if (nbSoldiers == 0 || nbReports == 0) {
 			throw new EndException();
 		}
 //		for (int soldier = 1; soldier <= nbSoldiers; soldier++) {
 //			leftNeighbour[soldier] = soldier - 1;
 //			rightNeighbour[soldier] = soldier + 1;
 //		}
-		Arrays.fill(leftNeighbour,-1);
-		Arrays.fill(rightNeighbour,-1);
+		Arrays.fill(leftNeighbour, -1);
+		Arrays.fill(rightNeighbour, -1);
 		for (int r = 0; r < nbReports; r++) {
 			int left = readInt(reader);
 			int right = readInt(reader);
@@ -77,20 +81,18 @@ public class Main {
 			int newRight = rightNeighbour[leftNeighbour[left]] = rightNeighbour[right];
 			int newLeft = leftNeighbour[rightNeighbour[right]] = leftNeighbour[left];
 			if (newLeft <= 0) {
-				formatter.format("*");
+				output.append("*");
 			} else {
-				formatter.format("%d", newLeft);
+				output.append(newLeft);
 			}
-			formatter.format(" ");
+			output.append(" ");
 			if (newRight > nbSoldiers) {
-				formatter.format("*");
+				output.append("*");
 			} else {
-				formatter.format("%d", newRight);
+				output.append(newRight);
 			}
-			formatter.format("%n");
+			output.append("\n");
 		}
-		output.append(formatter.out());
-		return output;
 	}
 
 	private int readInt(BufferedReader reader) throws IOException {
