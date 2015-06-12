@@ -1,7 +1,9 @@
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.util.Formatter;
 import java.util.Locale;
 
@@ -18,19 +20,23 @@ public class Main {
     }
 
     public void run() throws IOException {
-        //        Scanner scanner = new Scanner(System.in);
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        nbTC = readInt(reader);
-//         nbTC = Integer.MAX_VALUE;
+		BufferedWriter writer
+			= new BufferedWriter(new OutputStreamWriter(System.out));
+		StringBuilder output = new StringBuilder(25000);
+//        nbTC = readInt(reader);
+		nbTC = Integer.MAX_VALUE;
 //        scanner.nextLine();
-        try {
-            for (int tc = 1; tc <= nbTC; ++tc) {
-                result.append(oneTestCase(reader));
-                result.append('\n');
-            }
-        } catch (EndException e) {
-        }
-        System.out.print(result);
+		try {
+			for (int tc = 1; tc <= nbTC; ++tc) {
+				oneTestCase(reader, output);
+				output.append("-\n");
+			}
+		} catch (EndException e) {
+		}
+		writer.write(output.toString());
+		writer.flush();
+		writer.close();
     }
 
     /**
@@ -41,14 +47,13 @@ public class Main {
         main.run();
     }
 
-    private StringBuilder oneTestCase(BufferedReader reader) throws IOException {
+    private StringBuilder oneTestCase(BufferedReader reader, StringBuilder output) throws IOException {
         Formatter formatter = new Formatter(Locale.ENGLISH);
-        StringBuilder output = new StringBuilder();
 //        for (int i = 0; i < 5; ++i) {
 //            formatter.format("%3d", n[i]);
 //        }
 
-        output.append(formatter.out());
+        output.append(formatter.out()); // If the IO are 
         return output;
     }
 
