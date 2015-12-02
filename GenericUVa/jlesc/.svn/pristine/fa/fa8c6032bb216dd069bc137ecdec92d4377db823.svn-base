@@ -1,0 +1,55 @@
+
+\subsubsection{Title of Scientific Collaboration}
+\label{sec.report.xx} % add label, replace xx with your initials
+
+% start new section for referencing, please use the name of your bibfile here instead of report2015 (.bib)
+\begin{refsection}[mybeautifulproject]
+
+\paragraph{Participants}~\\
+
+List participants here.
+
+
+\paragraph{Research topic and goals}~\\
+
+List research topic and goals.
+
+
+\paragraph{Results for current year}~\\
+
+Write a few paragraphs on main results for current year. Describe relevant publications here~\cite{j132,j133}.
+
+\paragraph{Visits and meetings}~\\
+
+List visits and meetings (planned and done).
+
+
+\paragraph{Impact and publications}~\\
+
+% print list of publications containing the ``own'' keyword (for publications done within this project and year)
+\printbibliography[heading=none,keyword=own]
+
+Further impact
+\begin{itemize*}
+    \item done this
+    \item impact there
+\end{itemize*}
+
+\paragraph{Person-Month efforts}~\\
+
+This is very important for the JLESC activity report. 
+Detail person-months spent by both permanent and temporary researchers 
+who worked for the collaboration.
+
+\paragraph{Future plans}~\\
+
+Describe future plans here.
+
+\paragraph{References}~\\
+
+Provide a few bibliographical references here.
+
+% print list of publications not from this project but of other relevance
+\printbibliography[heading=none,notkeyword=own]
+
+\end{refsection}

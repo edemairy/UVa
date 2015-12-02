@@ -1,0 +1,124 @@
+%===================================================================================================
+\subsubsection{Exploiting Active Storage for Resilience}
+\label{sec.report.gvr-bgas}
+%===================================================================================================
+
+\begin{refsection}[gvr-bgas]
+
+%---------------------------------------------------------------------------------------------------
+\paragraph{Participants}~\\
+%---------------------------------------------------------------------------------------------------
+
+\noindent
+Professor Andrew A.~Chien, Argonne National Laboratory and University of Chicago \\
+Prof.~Dr.~Dirk Pleiter, J\"{u}lich Supercomputing Centre \\
+Dr.~Nan Dun, Argonne National Laboratory and University of Chicago \\
+Nicolas Vandenbergen, J\"{u}lich Supercomputing Centre \\
+
+%---------------------------------------------------------------------------------------------------
+\paragraph{Research topic and goals}~\\
+%---------------------------------------------------------------------------------------------------
+
+The research in this topic is based on a hardware and a software architecture,
+which both are currently under development: GVR and BGAS.
+GVR (Global View Resilience) is a user-level library that enables
+portable, efficient, application-controlled resilience \cite{Chien2015}.
+It focusses on achieving scalability and maximization of error recovery.
+BGAS (Blue Gene Active Storage) is a realisation of an active storage architecture based on
+custom flash memory cards which are integrated into Blue\,Gene/Q I/O drawers.
+Here JSC continues previous work on integration of non-volatile memory \cite{juniors}.
+In this subproject our goal is to explore the opportunities of both architectures by
+integrating them. More specifically the following research questions are addressed:
+%
+\begin{compactitem}
+\item How well can the software architecture of GVR exploit the BGAS hardware architecture?
+\item How efficiently can both architectures be exploited?
+\item What is the value of active storage for a which classes of large-scale scientific computing?
+\end{compactitem}
+
+%---------------------------------------------------------------------------------------------------
+\paragraph{Results for current year}~\\
+%---------------------------------------------------------------------------------------------------
+
+The project only started early this year and focussed on reaching the first milestone,
+i.e.~completing the port of GVR to BGAS.
+Based on a non-production version of MPI, namely MPICH3, this goal has been achieved
+with both GVR running on the Blue\,Gene/Q system at JSC and the BGAS run-time system adapted
+and recompiled for this version of MPI.
+
+%---------------------------------------------------------------------------------------------------
+\paragraph{Visits and meetings}~\\
+%---------------------------------------------------------------------------------------------------
+
+Beyond regular contacts via email the following meetings involving most of the participants
+took place:
+\begin{compactitem}
+\item Meeting of A.~Chien, N.~Dun and D.~Pleiter at SC14 on November 17, 2014.
+\item Technical update meeting on February 5, 2015.
+\end{compactitem}
+
+We plan for the following meetings:
+\begin{compactitem}
+\item Monthly telephone conferences starting from May 2015.
+\item Technical update meeting at JLESC workshop, June/July 2015.
+\item Architecture evaluation meeting at the end of July 2015.
+\item Data transport analysis and technical update meeting during SC15, November 2015.
+\end{compactitem}
+
+%---------------------------------------------------------------------------------------------------
+\paragraph{Impact and publications}~\\
+%---------------------------------------------------------------------------------------------------
+
+The project just started and thus did not result in any publications, yet.
+
+% print list of publications containing the ``own'' keyword (for publications done within this project and year)
+%\printbibliography[heading=none,keyword=own]
+%
+%Further impact
+%\begin{itemize*}
+%    \item done this
+%    \item impact there
+%\end{itemize*}
+
+%---------------------------------------------------------------------------------------------------
+\paragraph{Person-Month efforts}~\\
+%---------------------------------------------------------------------------------------------------
+
+%This is very important for the JLESC activity report. 
+%Detail person-months spent by both permanent and temporary researchers 
+%who worked for the collaboration.
+The efforts of the participants are as follows:
+
+\begin{center}
+\begin{tabular}{|l|c|}
+\hline
+A.~Chien		& 0.10 PM \\
+D.~Pleiter		& 0.10 PM \\
+N.~Dun			& 2.00 PM \\
+N.~Vandenbergen		& 0.50 PM \\
+\hline
+\end{tabular}
+\end{center}
+
+%---------------------------------------------------------------------------------------------------
+\paragraph{Future plans}~\\
+%---------------------------------------------------------------------------------------------------
+
+Within this subproject the next steps will be:
+%
+\begin{compactitem}
+\item Complete the already started performance evaluation and perform a scalability analysis.
+\item Explore possible changes to both the GVR software architecture as well as the BGAS
+      architecture (DSA interface to the flash memory, run-time system services).
+\item Explore and evaluate different data transport mechanisms including optimized RDMA
+      protocols for compute node to I/O node as well as I/O node to flash memory communication.
+\end{compactitem}
+
+%---------------------------------------------------------------------------------------------------
+\paragraph{References}~\\
+%---------------------------------------------------------------------------------------------------
+
+% print list of publications not from this project but of other relevance
+\printbibliography[heading=none,notkeyword=own]
+
+\end{refsection}

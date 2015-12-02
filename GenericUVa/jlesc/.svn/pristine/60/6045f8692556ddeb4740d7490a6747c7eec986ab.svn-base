@@ -1,0 +1,99 @@
+
+\subsubsection{Algorithms for detecting and correcting silent errors}
+\label{sec.report.silent} % add label, replace xx with your initials
+
+% start new section for referencing, please use the name of your bibfile here instead of report2015 (.bib)
+\begin{refsection}[silent-errors]
+\nocite{*}
+
+\paragraph{Participants}~\\
+
+\begin{itemize}
+	\item Anne Benoit (INRIA)
+	\item Aur\'{e}lien Cavelan (INRIA)
+	\item Leonardo Bautisat Gomez (ANL)
+	\item Franck Cappello (ANL)
+	\item Sheng Di (ANL)
+	\item Yves Robert (INRIA)
+	\item Hongyang Sun (INRIA)
+	\item Fr\'{e}d\'{e}ric~Vivien (INRIA)
+\end{itemize}	
+
+\paragraph{Research topic and goals}~\\
+
+The goal of this research is to devise effective resilience protocols to detect and correct silent errors during a computation, in order to optimize execution time or energy consumption. The studied topics include:
+
+\begin{itemize}
+\item Finding optimal patterns in the checkpoint and rollback recovery technique using guaranteed and partial verifications for error detection (extending the work of\~cite{young74,daly04} for fail-stop failures)
+\item Devising optimal voltage overscaling algorithms to cope with timing errors for matrix operations with the help of algorithm-based fault tolerance (ABFT), extending the work of\~cite{WapcoQuintan}
+to timing errors
+\end{itemize}
+
+\paragraph{Results for current year}~\\
+
+The publications produced in this research are \cite{Benoit14_chain, Cavelan15_partialSaurabh, Cavelan15_timing,Gomez14_SDCDetector}.
+
+In \cite{Benoit14_chain}, we combine the traditional checkpointing and rollback recovery strategies with guaranteed verification mechanisms to address both fail-stop and silent errors. The objective is to minimize either makespan or energy consumption. While DVFS is a popular approach for reducing the energy consumption, using lower speeds/voltages can increase the number of errors, thereby complicating the problem. We consider an application workflow whose dependence graph is a chain of tasks, and we study three execution scenarios: (i) a single speed is used during the whole execution; (ii) a second, possibly higher speed is used for any potential re-execution; (iii) different pairs of speeds can be used throughout the execution. For each scenario, we determine the optimal checkpointing and verification locations (and the optimal speeds for the third scenario) to minimize either objective. For both objectives, we also derive the optimal checkpointing and verification periods for the divisible load application model, where checkpoints and verifications can be placed at any point in execution of the application. The different execution scenarios are assessed and compared through an extensive set of experiments.
+
+In~\cite{Cavelan15_partialSaurabh}, we investigate the use of partial verification mechanisms in addition to a guaranteed verification for detecting silent errors. The main objective is to investigate to which extent it is worthwhile to use some light-cost but less precise verification type in the middle of a periodic computing pattern, which ends with a guaranteed verification right before each checkpoint. Introducing partial verifications dramatically complicates the analysis, but we are able to analytically determine the optimal computing pattern (up to first-order approximation), including the optimal length of the pattern, the optimal number of partial verifications, as well as their optimal positions inside the pattern.
+Simulations based on a wide range of parameters confirm the benefits of partial verifications in certain scenarios, when compared to the baseline algorithm that uses only guaranteed verifications.
+
+In \cite{Cavelan15_timing}, we propose a software-based approach using dynamic voltage 
+overscaling~\cite{Ciocca04_ALFT}
+to reduce the energy consumption of HPC applications. This technique
+aggressively lowers the supply voltage below nominal voltage, which
+introduces timing errors. These errors occur when the results of some logic gates are used before their output signals
+reach their final values, thus causing silent data corruption. To cope with timing errors, we use Algorithm-Based Fault-Tolerance
+(ABFT) to provide fault tolerance for matrix operations. We introduce
+a formal model, and we design optimal polynomial-time solutions, to execute a linear chain of tasks. Evaluation results obtained for matrix multiplication demonstrate that our approach indeed leads to significant energy savings, compared to the standard algorithm that always operates at nominal voltage.
+
+\paragraph{Visits and meetings}~\\
+
+The collaboration is just starting. Leonarod Bautista Gomez has visited
+ENS Lyon three days, from March31 to April 2, 2015.
+
+%\begin{itemize}
+%\item (Done) Workshop on Performance Modeling, Benchmarking and Simulation of High Performance Computer Systems (PMBS), Supercomputing (SC), Nov, 2014
+%
+%\item (Planned) Fault Tolerance for HPC at eXtreme Scale (FTXS) Workshop, ACM Symposium on High-Performance Parallel and Distributed Computing (HPDC), Jun, 2015
+%
+%\item (Planned) ICPP, others??
+%\item ...
+%\end{itemize}
+
+\paragraph{Impact and publications}~\\
+
+No common publication has been achieved yet, but each partner had contributed independent work listed 
+below.\\
+
+% print list of publications containing the ``own'' keyword (for publications done within this project and year)
+\printbibliography[heading=none,keyword=own]
+
+
+
+\paragraph{Person-Month efforts}~\\
+
+%This is very important for the JLESC activity report.
+%Detail person-months spent by both permanent and temporary researchers
+%who worked for the collaboration.
+
+\begin{itemize}
+	\item {\bf Aur\'elien Cavelan}, temporary researcher, 8 months
+	\item {\bf Hongyang Sun}, temporary researcher, 8 months
+	\item {\bf Anne Benoit}, permanent researcher, 1 month
+	\item {\bf Yves Robert}, permanent researcher, 4 months
+	\item {\bf Fr\'{e}d\'{e}ric~Vivien}, permanent researcher, 2 months
+\end{itemize}
+
+\paragraph{Future plans}~\\
+
+The future plans include extending this research from linear chains to other application workflows, such as tree graphs, fork-join graphs, series-parallel graphs, or even general directed acyclic graphs (DAGs). For the voltage overscaling problem, we are currently engaged in the design of optimal algorithms for a set of independent tasks.
+
+For silent error detection, we will investigate the use of multiple partial verification with different costs and accuracies. The question is whether one can achieve better performance by utilizing more than one type of partial verification simultaneously. Another direction is to consider ``false positives", which we have omitted so far. Indeed, in many verification mechanism, a tradeoff exists between false positives and false negatives by adjusting the range parameters of the fault filters. Analyzing the performance in this situation is a challenging future direction.
+
+\paragraph{References}~\\
+
+% print list of publications not from this project but of other relevance
+\printbibliography[heading=none,notkeyword=own]
+
+\end{refsection}

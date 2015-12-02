@@ -1,0 +1,81 @@
+% use keyword own to mark publications from this collaboration
+@inproceedings{omniscio,
+ author = {Dorier, Matthieu and Ibrahim, Shadi and Antoniu, Gabriel and Ross, Rob},
+ title = {Omnisc'IO: A Grammar-based Approach to Spatial and Temporal I/O Patterns Prediction},
+ booktitle = {Proceedings of the International Conference for High Performance Computing, Networking, Storage and Analysis},
+ series = {SC '14},
+ year = {2014},
+ isbn = {978-1-4799-5500-8},
+ location = {New Orleans, Louisana},
+ pages = {623--634},
+ numpages = {12},
+ url = {http://dx.doi.org/10.1109/SC.2014.56},
+ doi = {10.1109/SC.2014.56},
+ acmid = {2683662},
+ publisher = {IEEE Press},
+ address = {Piscataway, NJ, USA},
+ keywords = {own},
+} 
+
+@inproceedings{calciom,
+  TITLE = {{CALCioM: Mitigating I/O Interference in HPC Systems through Cross-Application Coordination}},
+  AUTHOR = {Dorier, Matthieu and Antoniu, Gabriel and Ross, Robert and Kimpe, Dries and Ibrahim, Shadi},
+  URL = {https://hal.inria.fr/hal-00916091},
+  BOOKTITLE = {{IPDPS - International Parallel and Distributed Processing Symposium}},
+  ADDRESS = {Phoenix, United States},
+  YEAR = {2014},
+  MONTH = May,
+  PDF = {https://hal.inria.fr/hal-00916091/file/CALCioM.pdf},
+  HAL_ID = {hal-00916091},
+  HAL_VERSION = {v1},
+  keywords = {own}
+}
+
+@Article{bryan2002benchmark,
+  Title                    = {A Benchmark Simulation for Moist Nonhydrostatic Numerical Models},
+  Author                   = {Bryan, George H. and Fritsch, J. Michael},
+  Journal                  = {Monthly Weather Review},
+  Year                     = {2002},
+  Number                   = {12},
+  Pages                    = {2917--2928},
+  Volume                   = {130},
+
+  Doi                      = {10.1175/1520-0493(2002)130<2917:ABSFMN>2.0.CO;2}
+}
+
+@Misc{lammps,
+  Title                    = {{LAMMPS, Sandia National Laboratory}},
+  HowPublished = {\url{http://lammps.sandia.gov/}},
+
+  Author                   = {}
+}
+
+@Misc{nek5000,
+  Title                    = {{Nek5000}},
+  HowPublished			   = {\url{http://nek5000.mcs.anl.gov}},
+  Author                   = {P. F. Fischer, James W. Lottes and Stefan G. Kerkemeier},
+  Year                     = {2008}
+}
+
+@Misc{gtc,
+  Title                    = {{GTC version 1, Plasma Theory Group, UCIrvine}},
+  HowPublished             = {\url{http://phoenix.ps.uci.edu/GTC/}},
+
+  Author                   = {}
+}
+
+@InProceedings{lofstead2010managing,
+  Title                    = {Managing Variability in the {IO} Performance of Petascale Storage Systems},
+  Author                   = {Lofstead, Jay and Zheng, Fang and Liu, Qing and Klasky, Scott and Oldfield, Ron and Kordenbrock, Todd and Schwan, Karsten and Wolf, Matthew},
+  Booktitle                = {Proceedings of the 2010 ACM/IEEE International Conference for High Performance Computing, Networking, Storage and Analysis (SC '10)},
+  Year                     = {2010},
+
+  Address                  = {Washington, DC, USA},
+  OPTPages                    = {1--12},
+  Publisher                = {IEEE Computer Society},
+
+  Acmid                    = {1884679},
+  Doi                      = {10.1109/SC.2010.32},
+  ISBN                     = {978-1-4244-7559-9},
+  Numpages                 = {12}
+}

@@ -1,0 +1,135 @@
+\subsubsection{Enhancing Asynchronous Parallelism in OmpSs with Argobots}
+\label{sec.report.pb} % add label, replace xx with your initials
+
+% start new section for referencing, please use the name of your bibfile here
+% instead of report2015 (.bib)
+\begin{refsection}[report2015_argobot]
+
+\paragraph{Participants}~\\
+\begin{itemize}
+  \item Pavan Balaji, Argonne National Laboratory, Computer Scientist
+  \item Sangmin Seo, Argonne National Laboratory, Postdoctoral Appointee
+  \item Huiwei Lu, Argonne National Laboratory, Postdoctoral Appointee
+  \item Rosa M. Badia, Barcelona Supercomputing Center, Team leader
+  \item Jesus Labarta, Barcelona Supercomputing Center, Computer Science Director
+  \item Xavier Teruel, Barcelona Supercomputing Center, Researcher
+  \item Vicenc Beltran Querol, Barcelona Supercomputing Center, Senior
+Researcher
+\end{itemize}
+
+\paragraph{Research topic and goals}~\\
+
+%List research topic and goals.
+As future applications on exascale systems are expected to contain billions of
+threads or tasks to exploit concurrency provided by the underlying hardware,
+parallel programming models need to evolve to efficiently support massive
+parallelism with low overhead. OmpSs is a programming model that extends OpenMP
+with new directives to support asynchronous parallelism. It enables asynchronous
+parallelism by using data-dependencies between different tasks of the
+application. Argobots is a low-level infrastructure that supports lightweight
+user-level threads (ULTs) and tasks for massive concurrency. It directly
+leverages the lowest-level constructs in the hardware and OS, such as
+lightweight notification mechanisms, data movement engines, memory mapping, and
+data placement strategies.
+
+In this project, we aim at improving asynchronous parallelism support in OmpSs
+with Argobots. As a first step, we will evaluate the possible integration of
+Argobots into the OmpSs runtime. Since Argobots provides two kinds of work units
+(one is a ULT that has context-switching ability, and the other is a tasklet
+that is suitable for atomic execution), efficient mapping between OmpSs tasks
+and Argobots’ work units will be beneficial to improve performance. If this
+evaluation is positive, we will proceed to a prototype implementation of the
+integration. Also, we will investigate how OmpSs can take advantage of two-level
+parallelism and deterministic threading model in Argobots. Argobots abstracts
+its execution model with hierarchical constructs and exposes their execution to
+users. OmpSs can exploit this model to optimize multi-level parallelism required
+for recursive algorithms. Finally, we will explore scheduling capability of
+Argobots in OmpSs. Argobots allows users to write their own scheduler and to
+stack different schedulers with different scheduling strategies. We will
+implement a locality-aware scheduler in Argobots, which will boost the execution
+performance of OmpSs tasks.
+
+
+\paragraph{Results for current year}~\\
+
+%Write a few paragraphs on main results for current year. Describe relevant
+%publications here~\cite{j132,j133}.
+We have discussed the feasibility of integrating OmpSs and Argobots. We reviewed
+both runtimes and compared their functionalities. The first observation is that
+Argobots and OmpSs runtime are overlapped in some basic functionalities and
+components, which are strongly embedded in the OmpSs runtime, and thus porting
+directly OmpSs runtime on top of Argobots ULTs will add many layers of
+components and scheduler overheads. We think that it needs more time and results
+to evaluate both runtimes and to come up with appropriate integration
+approaches.
+
+
+\paragraph{Visits and meetings}~\\
+
+%List visits and meetings (planned and done).
+We had a telecon meeting on December 15, 2014, where we discussed the current
+status of Argobots and OmpSs and interaction between two runtimes. We started
+our collaboration after this meeting. We have also exchanged emails to discuss
+the integration between Argobots and OmpSs runtime, current issues, and
+implementation plans.
+
+We will schedule more telecon meetings for discussion and plan visits as needed.
+
+Planned visits: Not planned yet.
+
+
+\paragraph{Impact and publications}~\\
+
+% print list of publications containing the ``own'' keyword (for publications
+% done within this project and year)
+%\printbibliography[heading=none,keyword=own]
+This project will have the future impact and contributions as follows:
+\begin{itemize*}
+  \item Improving the OmpSs programming model with a new lightweight
+        threading/tasking library, Argobots.
+  \item Exploring lightweight ULTs to support asynchronous parallelism and
+        enhancing asynchronous parallelism support in directive-based
+        programming models.
+  \item Implementing a runtime prototype that integrates Argobots and supports
+        OmpSs.
+  \item Evaluating performance of the runtime prototype with OmpSs applications.
+\end{itemize*}
+
+We plan to publish one or two papers to share our work on interaction between
+OmpSs and Argobots with the HPC community and to make our runtime prototype open
+source software at the end of the project.
+
+
+\paragraph{Person-Month efforts}~\\
+
+%This is very important for the JLESC activity report.
+%Detail person-months spent by both permanent and temporary researchers
+%who worked for the collaboration.
+The following are the person-month efforts of the project members spent since
+the start of the project.
+\begin{itemize}
+  \item Pavan Balaji: 0.5
+  \item Sangmin Seo: 1
+  \item Huiwei Lu: 1
+  \item Jesus Labarta: 0.5
+  \item Rosa M. Badia: 0.5
+  \item Xavier Teruel: 1.5
+  \item Vicenç Beltran Querol: 0.5
+\end{itemize}
+
+
+\paragraph{Future plans}~\\
+
+%Describe future plans here.
+We will analyze real difficulties behind the interaction between Argobots and
+OmpSs runtime and evaluate some integration approaches. Once the evaluation
+phase is done, we will design and implement a runtime prototype. After that, we
+will optimize the prototype runtime and evaluate it with some OmpSs
+applications.
+
+
+\paragraph{References}~\\
+
+%Provide a few bibliographical references here.
+\printbibliography[heading=none,notkeyword=own]
+\end{refsection}

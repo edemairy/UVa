@@ -1,0 +1,113 @@
+
+\subsubsection{Developer tools for porting \& tuning parallel applications on extreme-scale parallel systems}
+\label{sec.report.bjnw} % add label, replace xx with your initials
+
+% start new section for referencing, please use the name of your bibfile here instead of report2015 (.bib)
+\begin{refsection}[report2015_bjnw]
+
+\paragraph{Participants}%~\\
+
+\begin{itemize}
+\item Brian J.\,N. Wylie, JSC
+\item Miwako Tsuji, RIKEN
+\item TBD
+\end{itemize}
+
+
+\paragraph{Research topic and goals}~\\
+
+Application developers targeting extreme-scale HPC systems such as
+\textsl{JUQUEEN} (BG/Q) and \textsl{Kei} (K~computer) need effective
+tools to assist with porting and tuning for these unusual systems (e.g.,
+where measurement configuration and analysis result files must be
+explicitly staged in and out of batch job partitions). The
+\textit{XcalableMP} compilation system (and directive-based
+language)~\cite{10.1109/ICPPW.2010.62,10.1109/ICPP.2013.58}  and
+\textit{Scalasca}/\textit{Score-P} execution measurement and analysis
+tools~\cite{geimer_ea:2010:scalascaarchitecture,knuepfer:2011:scorep}
+(using \textit{SIONlib} scalable file
+I/O~\cite{frings_ea:2009:parallelio}) are two notable examples of tools
+developed by RIKEN and JSC for this purpose. This project proposes to
+extend their support for JLESC HPC systems and exploit their
+capabilities in an integrated work flow. 
+
+Existing training material will be adapted to collaborators' large-scale
+HPC systems, augmented with newly prepared material, and refined for
+better uptake based on participant evaluations and feedback. Travel and
+accommodation expenses of training presenters to participate in joint
+training events (such as VI-HPS Tuning Workshops~\cite{VI-HPS-TWS}) will
+be supported. Collaborative work with application developers will assess
+the effectiveness of the current (and revised) tools, and help direct
+development of new tool capabilities.
+
+
+\paragraph{Results for current year}~\\
+
+%Write a few paragraphs on main results for current year. Describe relevant publications here~\cite{j132,j133}.
+
+JLESC project proposed (and accepted) in April 2015, and planning
+commenced for initial presentation at 3rd JLESC Workshop (Barcelona) in
+June 2015.  RIKEN AICS applied to join VI-HPS with a view
+to contributing to VI-HPS Tuning Workshops~\cite{VI-HPS-TWS} and Tools Guide~\cite{VI-HPS_ToolsGuide}.
+\textit{XcalableMP} training material being translated into English, and
+\textit{Scalasca/Score-P} training material being translated into Japanese.
+
+
+\paragraph{Visits and meetings}~\\
+
+% List visits and meetings (planned and done).
+
+Initial face-to-face meeting planned as part of 3rd JLESC Workshop (Barcelona) and
+follow-up at ISC-HPC (Frankfurt am Main) in July.
+
+\paragraph{Visits planned for the next 12 months}~\\
+
+% Planned visits for the next 12 months 
+% (number of faculties, duration for each, number of students, duration for each):
+
+Visit of RIKEN AICS researcher to JSC perhaps after ISC-HPC or in December 2015 (1--2 weeks).
+Visit of JSC researcher to RIKEN considered for 2016 (perhaps 4 weeks).
+
+\paragraph{Impact and publications}~\\
+
+% print list of publications containing the ``own'' keyword (for publications done within this project and year)
+\printbibliography[heading=none,keyword=own]
+
+Further impact
+\begin{itemize*}
+    \item TBD
+\end{itemize*}
+
+\paragraph{Person-Month efforts}~\\
+
+%This is very important for the JLESC activity report. 
+%Detail person-months spent by both permanent and temporary researchers 
+%who worked for the collaboration.
+
+JSC: 0.0, RIKEN: 0.0.
+
+\paragraph{Future plans}~\\
+
+%Describe future plans here.
+
+The existing integration of \textit{XscalableMP} and \textit{Scalasca}
+will be updated to the latest community-developed \textit{Score-P}
+instrumentation and measurement infrastructure, and made available for
+use on \textit{JUQUEEN} BG/Q and \textit{Kei} K computer.  Example batch
+scripts (e.g., to stage-in/out configuration and analysis files) and
+associated user documentation will be provided.
+
+\textit{XcalableMP} to be included in VI-HPS Tuning Workshop as part of
+PRACE Advanced Training Centre (PATC) curriculum to be held in Germany in spring 2016.
+VI-HPS Tuning Workshop to be hosted by RIKEN AICS in Japan
+tentatively scheduled for February 2016.
+
+\paragraph{References}~\\
+
+%A few bibliographical references
+%\cite{VI-HPS_ToolsGuide,geimer_ea:2010:scalascaarchitecture,knuepfer:2011:scorep,frings_ea:2009:parallelio,10.1109/ICPPW.2010.62,10.1109/ICPP.2013.58}.
+
+% print list of publications not from this project but of other relevance
+\printbibliography[heading=none,notkeyword=own]
+
+\end{refsection}

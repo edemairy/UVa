@@ -1,0 +1,163 @@
+
+\subsubsection{Object-based storage system for HPC systems}
+\label{sec.report.RR} % add label, replace xx with your initials
+
+% start new section for referencing, please use the name of your bibfile here instead of report2015 (.bib)
+\begin{refsection}[collab_report_RR]
+
+\paragraph{Participants}~\\
+
+Lokman Rahmani, ENS Rennes, PhD student \\
+John Jenkins, ANL, Postdoctoral Researcher \\ 
+Shane Snyder, ANL, Predoctoral Researcher \\
+Rob Ross, ANL, Senior Researcher \\ 
+Gabriel Antoniu, Inria, Senior Researcher \\
+
+\paragraph{Research topic and goals}~\\
+
+As we push towards the exascale computing regime, the foundations of
+scientific data storage must be revisited. The current model of access, the
+POSIX file model, creates barriers to performance by hiding the organization
+of data on storage and limiting the ability of higher level I/O software to
+express the relationships in scientific data. In order to improve the
+efficiency of the storage system, including its use in analysis, applications
+and tools must have the means to \emph{capture semantics of data}, such as the
+types and dimensions of variables being stored, and to \emph{exploit locality
+of access}.
+%
+We propose to bypass the traditional file model and directly map scientific
+datasets onto file system objects, hiding this change in I/O libraries such as
+HDF5 and Parallel netCDF, storing semantic information alongside the data, and
+exposing data layout such that computation can be co-located with data.
+%
+In the long term, this additional knowledge and capabilities will facilitate
+self-optimization in the storage system.
+
+
+\paragraph{Results for current year}~\\
+
+\subparagraph{Group Membership:}
+Fault response strategies are crucial to maintaining performance and
+availability in HPC storage systems, and the first responsibility of a
+successful fault response strategy is to detect failures and maintain
+an accurate view of group membership. This is a nontrivial problem
+given the unreliable nature of communication networks and other system
+components.  As with many engineering problems, trade-offs must be
+made to account for the competing goals of fault detection efficiency
+and accuracy.  Today's production HPC services typically rely on
+distributed consensus algorithms and heartbeat monitoring for group
+membership.
+
+In this work, we investigate epidemic protocols to determine whether
+they would be a viable alternative. Epidemic protocols have been
+proposed in previous work for use in peer-to-peer systems, but they
+have the potential to increase scalability and decrease fault response
+time for HPC systems as well. We focus our analysis on the Scalable
+Weakly-consistent Infection-style Process Group Membership (SWIM)
+protocol.
+
+We begin by exploring how the semantics of this protocol differ from
+those of typical HPC group membership protocols, and we discuss how
+storage systems might need to adapt as a result.  We use existing
+analytical models to choose appropriate SWIM parameters for an HPC use
+case. We then develop a new, high-resolution parallel discrete event
+simulation of the protocol to confirm existing analytical models and
+explore protocol behavior that cannot be readily observed with
+analytical models.  Our preliminary results indicate that the SWIM
+protocol is a promising alternative for group membership in HPC
+storage systems, offering rapid convergence, tolerance to transient
+network failures, and minimal network load~\cite{snyder:swim}.
+
+\subparagraph{Organizing the HPC Storage Community:}
+Storage systems are a foundational component of computational,
+experimental, and observational science today. The success of
+Department of Energy (DOE) activities in these areas is inextricably
+tied to the usability, performance, and reliability of storage and
+input/output (I/O) technologies. In December 2014, a diverse group of
+domain and computer scientists from the Office of Science, the
+National Nuclear Security Administration, industry, and academia
+assembled in Rockville, Maryland, to review the storage system and
+input/output (SSIO) requirements for simulation-driven activities
+associated with DOE science, energy, and national security missions
+and to assess the state of the art in key storage system and I/O
+areas. The activity was organized into three workshops.
+
+The first workshop consisted of a series of talks from six DOE and
+NNSA application representatives, many of whom are engaged in exascale
+application co-design activities. The talks detailed the
+characteristics of the simulation and analysis tasks that the
+researchers expect to perform and the I/O characteristics of these
+tasks; the anticipated use of new storage technologies such as
+nonvolatile memory in accomplishing their science goals; the ways in
+which data is organized and searched and how the history of that data
+maintained; and the expected impact of issues such as increasing error
+rates and technologies such as compression. Following each talk the
+group discussed the key points raised and potential areas for future
+research and development.
+
+The computing landscape is changing rapidly, and so the second
+workshop focused on how other computer science technologies (i.e.,
+computer architecture, operating systems and runtimes, networking
+systems, workflow systems, data analysis and visualization algorithms,
+resilience techniques, and collaboration tools) will influence, and
+will be influenced by, future SSIO solutions. Seven talks by computer
+science experts in these fields identified the manner in which these
+systems are interrelated, and discussion with these experts further
+focused attention on key issues.
+
+The information from these two workshops fed into the third workshop,
+during which SSIO community members engaged in open discussion on
+potential research directions in SSIO to support extreme-scale
+simulation-based DOE science. During five interactive sessions, the
+participants openly discussed the state of the art in specific SSIO
+technology areas and identified challenges and areas where additional
+research was needed in these areas~\cite{ross:ssio}.
+
+
+\paragraph{Visits and meetings}~\\
+
+\begin{itemize}
+\item June 2 - June 6: Rob Ross visited KerData in Rennes.
+\item June 9 - June 11: 11th workshop of the JLESC held in Nice, France.
+\item November 24 - November 26: Meetings for updates and planning were held during the 2nd JLESC 
+\item June 29 - July 3: 12th workshop of the JLESC to be held in Barcelona, Spain.
+\end{itemize}
+
+\paragraph{Impact and publications}~\\
+
+% print list of publications containing the ``own'' keyword (for publications done within this project and year)
+\printbibliography[heading=none,keyword=own]
+
+\paragraph{Person-Month efforts}~\\
+
+\begin{itemize}
+\item Rob Ross, ANL 1MM
+\item Gabriel Antoniu, INRIA 1MM
+\item Lokman Rahmani, INRIA 4MM
+\item Shane Snyder, ANL 5MM
+\item John Jenkins, ANL 3MM
+\end{itemize}
+
+\paragraph{Future plans}~\\
+
+\subparagraph{Exascale System Services:} We define a system service as a long-running, distributed system designed to provide a given capability to multiple users and applications on the platform. Few such services run in existing HPC environments: parallel file systems are one example.
+
+We propose to research and develop elasticity capabilities for
+Mercury. This would include a concept of the members of the service
+and an ability to add and remove members at runtime. One research
+question is whether this should be integrated into Mercury or provided
+as an optional component of some sort.
+
+We further propose to build on the existing Mercury components to
+develop a prototype service (e.g., a multi-user, resilient
+keyword/value store). We will query other LDRD groups to assess what
+model is most appropriate and will adjust the details of the service
+as appropriate. Testing and evaluation would be performed on the Theta
+system.
+
+\paragraph{References}~\\
+
+% print list of publications not from this project but of other relevance
+\printbibliography[heading=none,notkeyword=own]
+
+\end{refsection}

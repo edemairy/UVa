@@ -1,0 +1,70 @@
+
+\subsubsection{Hybrid resilience for MPI + tasks codes}
+\label{Cappello-MPI-Tasks-Resilience} % add label, replace xx with your initials
+
+% start new section for referencing, please use the name of your bibfile here instead of report2015 (.bib)
+\begin{refsection}[collab_report_FC_MPI_task_resilience]
+
+\paragraph{Participants}
+
+\begin{itemize*}
+ \item Omer Subasi, BSC, Ph. D. Student 
+ \item Tatiana Martsinkevich, Inria, Ph. D. Student 
+ \item Franck Cappello, ANL, Senior Computer Scientist
+ \item Osman Unsal, BSC, Senior Researcher 
+ \end{itemize*}
+
+\paragraph{Research topic and goals}~\\
+
+We investigate fault-tolerant protocols, mitigating transient errors, that can be applied to task-parallel message-passing applications. 
+Our approach limits the consequences of a fault to the task that experienced it and allows a fast and asynchronous recovery that is more efficient than the
+conventional full-application rollback-recovery. The proposed protocol will implemented in Nanos; a dataflow runtime for the task-based OmpSs programming model; and the PMPI profiling layer to fully support hybrid OmpSs+MPI applications.
+The OmpSs+MPI programming model provides several advantages over conventional programming models in terms of performance and the potential for using asynchronous fault tolerance. 
+
+\paragraph{Results for current year}~\\
+
+This collaboration started in summer 2014.  In our experiments we demonstrate that our fault tolerant solution has a reasonable overhead, with a maximum observed overhead of 4.5\%. We also show that fine-grained parallelization is important for hiding the overheads related to the protocol as well as the recovery of tasks.
+
+The collaboration has been implemented by the 3 months visit of  Tatiana Martsinkevich to BSC during the summer of  2014.
+Since then a paper has been written and is under submission ~\cite{Martsinkevich-Cluster2015}.  
+
+\paragraph{Visits and meetings}
+
+\begin{itemize*}
+ \item Tatiana Martsinkevich (Inria) to BSC from June 2014 to October, 2014.
+\end{itemize*}
+
+
+\paragraph{Impact and publications}~\\
+
+A paper is under submission ~\cite{Martsinkevich-Cluster2015}.  
+% print list of publications containing the ``own'' keyword (for publications done within this project and year)
+\printbibliography[heading=none,keyword=own]
+
+Further impact
+\begin{itemize*}
+    \item none yet
+% \item impact there
+\end{itemize*}
+
+\paragraph{Person-Month efforts}~\\
+
+\begin{itemize*}
+ \item Tatiana Martsinkevich (Inria): 6 PM
+ \item Omer Subasi (BSC): 4 PM 
+ \item Osman Unsal (BSC): 0.5 PM 
+ \item Franck Cappello (ANL): 1 PM 
+\end{itemize*}
+
+\paragraph{Future plans}~\\
+
+After the two visits planned from July 2015, we plan to work on a join-paper, submit if to IPDPS, PPoPP or CCGRID and then present the results during the November JLESC workshop.
+
+\paragraph{References}~\\
+
+Provide a few bibliographical references here.
+
+% print list of publications not from this project but of other relevance
+\printbibliography[heading=none,notkeyword=own]
+
+\end{refsection}

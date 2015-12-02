@@ -1,0 +1,123 @@
+\subsubsection{Overlap Communication and Computation with Hybrid MPI+OmpSs}
+\label{sec.report.pb2} % add label, replace xx with your initials
+
+\paragraph{Participants}~\\
+\begin{itemize}
+  \item Pavan Balaji, Argonne National Laboratory, Computer Scientist
+  \item Huiwei Lu, Argonne National Laboratory, Postdoctoral Appointee
+  \item Sangmin Seo, Argonne National Laboratory, Postdoctoral Appointee
+  \item Jesus Labarta, Barcelona Supercomputing Center, Computer Science Director
+  \item Rosa M. Badia, Barcelona Supercomputing Center, Team leader
+  \item Xavier Teruel, Barcelona Supercomputing Center, Researcher
+  \item Vicenc Beltran Querol, Barcelona Supercomputing Center, Senior Researcher
+\end{itemize}
+
+\paragraph{Research topic and goals}~\\
+
+%List research topic and goals.
+
+The performance of large-scale scientific applications is often determined by
+communication and synchronization. To improve application scalability, we need
+asynchronous programming models to overlap communication with computation and
+to improve the load balance of applications. OmpSs is a programming model that
+extends OpenMP with new directives to support asynchronous parallelism and
+heterogeneity. It enables asynchronous parallelism by using data-dependencies
+between different tasks of the application. MPI is a de facto standard for
+communication among processes on distributed memory systems. Combining OmpSs
+and MPI will have the potential to extend asynchronous data-flow execution to
+distributed memory systems and improve intra-node data movement compared to
+MPI-only model.
+
+The project will be structured in several steps. First, we will evaluate the
+possibility to integrate OmpSs into the progress engine of MPI. Currently MPI
+supports the interaction with threads. Multiple threads will share the same
+progress engine to deal with pending MPI requests.  When a thread makes a
+blocking MPI call, it will yield to other threads in order not to block the
+progress of the MPI process. When integrating OmpSs, we will need to manage
+OmpSs tasks to correctly yield the execution to one another inside the progress
+engine. In case this evaluation is positive, the integration will be performed.
+Also, in this case, in a second step, we will port applications to use this
+hybrid runtime and use existing ones already available at BSC. Hybrid MPI+OmpSs
+will give us a new opportunity to explore asynchronous data-flow execution in
+distributed algorithms. Synchronization will be minimized  thanks to the task
+dependency graph and by enabling asynchronous communications to hide
+communication cost, and obtaining better scalability in hybrid applications.
+And finally we will evaluate and optimize the runtime and write papers. We plan
+to share our findings of MPI+OmpSs with the HPC community with paper and open
+source software at the end of the project.
+
+\paragraph{Results for current year}~\\
+
+%Write a few paragraphs on main results for current year. Describe relevant
+%publications here~\cite{j132,j133}.
+We have started the collaboration since December, 2014. All participants in the
+project have met each other on a telecon meeting.
+
+We have discussed the feasibility of integrateing MPI and OmpSs. In previous
+work, the hybrid MPI/SMPSs runtime from BSC has already investigated the
+benefit of using task-based programming model to overlap communication and
+computation, where MPI calls were encapsulated in SMPSs tasks, enabling the
+runtime scheduler to reorder the execution of communication tasks in relation
+to the computational tasks. In this proposal we plan to evaluate how to extend
+the current MPI+OmpSs model  with a deeper integration of OmpSs inside the MPI
+progress engine to better support communication overlap. The idea is to have
+multiple OmpSs tasks making MPI calls, and the MPI will schedule them
+internally to overlap different tasks.
+
+We have started implementing an MPI+OmpSs prototype.
+
+\paragraph{Visits and meetings}~\\
+
+%List visits and meetings (planned and done).
+December 15, 2014, telecon meeting: All participants joined this telecon
+meeting.  This meeting discussed the current status of MPI and OmpSs, and the
+feasibility of the integration.  We started the collaboration of ANL and BSC
+after this meeting.
+
+Besides, we have regular Email exchanges discussing the runtime design, current
+issues and implemention plans.
+
+We will schedule more telecon meetings for discussion and plan visits as needed.
+
+Planned visits: Not planned yet.
+
+\paragraph{Impact and publications}~\\
+
+% print list of publications containing the ``own'' keyword (for publications done within this project and year)
+%\printbibliography[heading=none,keyword=own]
+
+We plan to share our findings of MPI+OmpSs with the HPC community with paper
+and open source software at the end of the project.
+
+\paragraph{Person-Month efforts}~\\
+
+% This is very important for the JLESC activity report. 
+% Detail person-months spent by both permanent and temporary researchers 
+% who worked for the collaboration.
+
+The following are the person-month efforts of the project members spent since
+the start of the project.
+\begin{itemize}
+  \item Pavan Balaji: 0.5
+  \item Huiwei Lu: 1
+  \item Sangmin Seo: 1
+  \item Jesus Labarta: 0.5
+  \item Rosa M. Badia: 0.5
+  \item Xavier Teruel: 1.5
+  \item Vicenc Beltran Querol: 0.5
+\end{itemize}
+
+\paragraph{Future plans}~\\
+
+% Describe future plans here.
+The first step will be implementing the prototype. We will work on improving
+the performance of the prototype and investigate how to overlap the
+communication and computation with MPI+OmpSs. The next step would be designing
+microbenchmarks to explore the benefits of this hybrid runtime. Also, We plan
+to porting HPC application to use MPI+OmpSs for communication/computation
+overlapping.
+
+\paragraph{References}~\\
+\citation{ICS10-Marjanovic}
+
+% Provide a few bibliographical references here.

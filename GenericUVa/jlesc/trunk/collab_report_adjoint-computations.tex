@@ -1,0 +1,117 @@
+
+
+\subsubsection{Checkpointing strategies for adjoint computations \ongoing}
+\label{sec.report.adjoint} 
+
+% start new section for referencing, please use the name of your bibfile here instead of report2015 (.bib)
+\begin{refsection}[adjoint-computations]
+
+\paragraph{Participants}~\\
+
+\begin{itemize}
+	\item Guillaume Aupy (INRIA)
+	\item Julien Herrmann (INRIA)
+	\item Paul Hovland (ANL)
+	\item Yves Robert (INRIA)
+\end{itemize}
+
+
+\paragraph{Research topic and goals}~\\
+%List research topic and goals.
+The need to efficiently compute the derivatives of a function arises frequently
+in many areas of scientific computing, including mathematical optimization,
+uncertainty quantification, and nonlinear systems of equations. When the first
+derivatives of a scalar-valued function are desired, so-called adjoint
+computations can compute the gradient at a cost equal to a small constant times
+the cost of the function itself, without regard to the number of independent
+variables.
+In this work we want to optimize the computational time of such functions when
+the memory is not sufficient to hold all  necessary data~\cite{Heimbach20051356}.
+
+Previously, optimal algorithms for adjoint computations were known only for a
+single level of checkpoints with no writing and reading costs; a well-known
+example is the binomial checkpointing algorithm of Griewank and
+Walther~\cite{griewank1992achieving,griewank2000algorithm}. Stumm and Walther
+extended that binomial checkpointing algorithm to the case of two levels of
+checkpoints, but they did not provide any optimality
+results~\cite{stumm2009multistage}.
+
+Goals:
+\begin{enumerate}
+	\item Computing efficient schedules for the offline adjoint problem with two
+storage levels (memory and disks);
+	\item Computing efficient schedules for the online adjoint problem (when the
+number of operations to perform is not known before execution);
+	\item Computing efficient schedules in the presence of failures;
+	\item Implementing thee algorithms into adjoint computation software.
+\end{enumerate}
+
+
+\paragraph{Results for current year}~\\
+
+We have designed the first optimal algorithm for the offline adjoint problem with two
+storage levels. A prototype evaluation showed that we save more than 60\% on
+the execution time on realistic adjoint computations~\cite{aupy:hal-01147155}.
+
+%We are currently finish
+%Write a few paragraphs on main results for current year. Describe relevant publications here~\cite{aupy:hal-01147155}.
+
+\paragraph{Visits and meetings}~\\
+%List visits and meetings (planned and done).
+%Visits done:
+\emph{Past visits and meetings}
+\begin{itemize}
+	\item[] Guillaume Aupy visited Paul Hovland at Argonne National Laboratory
+from Sept. 2014 to Dec. 2014 .
+\end{itemize}
+\emph{Planned visits and meetings}
+\begin{itemize}
+	\item[] Paul Hovland will visit Guillaume Aupy and Yves Robert from
+June 22nd, 2015 to June 26th, 2015.
+	\item[] Guillaume Aupy and Paul Hovland plan to attend the $17^{th}$
+AutoDiff Workshop in July 2015 to present the first results.
+\end{itemize}
+
+\paragraph{Impact and publications}~\\
+
+% print list of publications containing the ``own'' keyword (for publications done within this project and year)
+\printbibliography[heading=none,keyword=own]
+
+
+%\begin{itemize*}
+%    \item done this
+%    \item impact there
+%\end{itemize*}
+
+\paragraph{Person-Month efforts}~\\
+
+%This is very important for the JLESC activity report. 
+%Detail person-months spent by both permanent and temporary researchers 
+%who worked for the collaboration.
+\begin{itemize}
+	\item {\bf Guillaume Aupy}, temporary researcher, 8 months
+	\item {\bf Julien Herrmann}, temporary researcher, 4 months
+	\item {\bf Paul Hovland}, permanent researcher, 1 month
+	\item {\bf Yves Robert}, permanent researcher, 1 month
+\end{itemize}
+
+
+\paragraph{Future plans}~\\
+%Describe future plans here.
+
+As stated above, we aim at achieving the following goals:
+\begin{enumerate}
+	\item Computing efficient schedules for the online adjoint problem (when the
+number of operations to perform is not known before-hand);
+	\item Computing efficient schedules in the presence of failures;
+	\item Implementing those algorithms into adjoint computation software.
+\end{enumerate}
+
+\paragraph{References}~\\
+
+%Provide a few bibliographical references here.
+
+% print list of publications not from this project but of other relevance
+\printbibliography[heading=none,notkeyword=own]
+%\bibfile{mybeautifulproject}
+\end{refsection}

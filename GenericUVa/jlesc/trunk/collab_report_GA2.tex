@@ -1,0 +1,68 @@
+
+\subsubsection{Mitigating I/O Interference in Concurrent HPC Applications}
+\label{sec.report.GA2} % add label, replace xx with your initials
+
+% start new section for referencing, please use the name of your bibfile here instead of report2015 (.bib)
+\begin{refsection}[omniscio]
+
+\paragraph{Participants}~\\
+
+Matthieu Dorier, Gabriel Antoniu, Shadi Ibrahim, Rob Ross, Orcun Yildiz
+
+\paragraph{Research topic and goals}~\\
+
+With million-core supercomputers comes the problem of interference between distinct applications accessing a shared file system in a concurrent manner~\cite{lofstead2010managing}. Our work aims to investigate and quantify this interference effect, and to mitigate I/O interference through a novel approach that uses cross-application communication and coordination: CALCioM. In previous work experiments done during Matthieu Dorier's internship at ANL led to a better understanding of the I/O interference phenomena, and to the implementation of a prototype of the CALCioM approach with currently includes 3 scheduling strategies. As a result of this work, a paper was accepted at IEEE IPDPS 2014~\cite{calciom}. 
+
+
+\paragraph{Results for current year}~\\
+
+\subparagraph{Sub-goal 1:} Having exemplified the interference phenomenon on synthetic benchmarks, we are now interested in showing how often such interference occurs and the nature of the applications that are involved in this phenomenon. This investigation was done through the analysis of traces produced by the Darshan library on ANL's Intrepid BlueGene/P system.
+
+\subparagraph{Results:} We developed Darshan-Ruby and Darshan-Web (\url{http://darshan-ruby.gforge.inria.fr}). Darshan-Ruby is a Ruby wrapper to ANL's Darshan library. Darshan-Web is a Web platform for online analysis of Darshan log files. This platform is based on Ruby on Rails, D3.js, and AJAX technologies. A demo is available here: \url{http://darshan-web.irisa.fr}
+
+\subparagraph{Sub-goal 2:} Our second goal was to find a way to improve CALCioM by modeling and predicting I/O patterns. This prediction should be made at run time, with no prior knowledge of the application, and should converge toward an accurate model of the application's I/O within a few iterations only.
+
+\subparagraph{Results:} To this end, we developed Omnisc'IO, an approach that leverages format grammars to model and predict the I/O behavior of HPC applications. Omnisc'IO was evaluated with four real application: CM1~\cite{bryan2002benchmark}, Nek5000~\cite{nek5000}, LAMMPS~\cite{lammps} and GTC~\cite{gtc}, and our results led to a paper at SC'14~\cite{omniscio}.
+
+\paragraph{Visits and meetings}~\\
+
+\begin{itemize}
+\item June 2 - June 6: Rob Ross visited KerData in Rennes.
+\item June 9 - June 11: 11th workshop of the JLESC held in Nice, France.
+\item November 24 - November 26: Meetings for updates and planning were held during the 2nd JLESC 
+\item July - September 2015: Internship of Or\c{c}un Yildiz at Argonne National Laboratory.
+\end{itemize}
+
+\paragraph{Impact and publications}~\\
+
+% print list of publications containing the ``own'' keyword (for publications done within this project and year)
+\printbibliography[heading=none,keyword=own]
+
+%Further impact
+%\begin{itemize*}
+ %   \item Paper presented at SC'14.
+%\end{itemize*}
+
+\paragraph{Person-Month efforts}~\\
+
+
+\begin{itemize}
+\item Gabriel Antoniu, Inria 1MM
+\item Shadi Ibrahim, Inria 2MM
+\item Matthieu Dorier, ENS Rennes 3MM
+\item Orçun Yildiz, ENS Rennes 10MM
+\item Rob Ross, ANL 1MM
+\end{itemize}
+
+\paragraph{Future plans}~\\
+
+\subparagraph{Sub-goal 1:} Our plan is to integrate Omnisc'IO within CALCioM in order to provide a fully-featured I/O scheduling system. Evaluations will be made using event-driven simulations, using traces from Argonne's Darshan tools.
+
+\subparagraph{Sub-goal 2:} Our plan is to investigate the different factors which contribute to the interference in HPC systems and explore a model to predicate this interference. And ultimately to provide a new framework for interference-aware scheduling that would help in improving the performance of HPC applications. This work is the subject for the summer internship for Or\c{c}un Yildiz at ANL (2015).
+
+\paragraph{References}~\\
+
+% print list of publications not from this project but of other relevance
+\printbibliography[heading=none,notkeyword=own]
+
+\end{refsection}

@@ -1,0 +1,29 @@
+% use keyword own to mark publications from this collaboration
+
+@inproceedings{peterka_ldav11,
+author = "Tom Peterka and Robert Ross and Wesley Kendall and Attila Gyulassy and Valerio Pascucci and Han-Wei Shen and Teng-Yok Lee and Abon Chaudhuri",
+title = "Scalable Parallel Building Blocks for Custom Data Analysis",
+booktitle = "Proceedings of Large Data Analysis and Visualization Symposium LDAV'11",
+address = "Providence, RI",
+year = "2011"
+}
+
+@inproceedings{chaudhuri_ldav12,
+ author = "Abon Chaudhuri and Teng-Yok Lee and Bo Zhou and Cong Wang and Tiantian Xu and Han-Wei Shen and Tom Peterka and Yi-Jen Chiang",
+ title = "{{Scalable Computation of Distributions from Large Scale Data Sets}}",
+ booktitle = "Proceedings of the 2012 IEEE Large Data Analysis and Visualization Symposium LDAV'12",
+ address = "Seattle, WA",
+ year = "2012"
+}
+
+@Article{bryan2002benchmark,
+  Title                    = {A Benchmark Simulation for Moist Nonhydrostatic Numerical Models},
+  Author                   = {Bryan, George H. and Fritsch, J. Michael},
+  Journal                  = {Monthly Weather Review},
+  Year                     = {2002},
+  Number                   = {12},
+  Pages                    = {2917--2928},
+  Volume                   = {130},
+
+  Doi                      = {10.1175/1520-0493(2002)130<2917:ABSFMN>2.0.CO;2}
+}

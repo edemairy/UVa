@@ -1,0 +1,81 @@
+
+
+\subsubsection{Shared Infrastructure for Source Transformation Automatic Differentiation \ongoing}
+\label{sec.report.autom-diff} 
+
+% start new section for referencing, please use the name of your bibfile here instead of report2015 (.bib)
+\begin{refsection}[automatic-differentiation]
+
+\paragraph{Participants}
+
+\begin{itemize}
+	\item Laurent Hascoet, INRIA, Senior Researcher
+	\item Paul Hovland, Argonne National Laboratory, Computer Scientist
+	\item Sri Hari Krishna Narayanan, Argonne National Laboratory, Assistant Computer Scientist
+\end{itemize}
+
+
+\paragraph{Research topic and goals}~\\
+
+%List research topic and goals.
+Computing derivatives of numerical models is an important task for uncertainty quantification, sensitivity analysis, and numerical optimization. Automatic, or algorithmic,  differentiation (AD) computes derivatives at machine precision by reinterpreting the program that implements a given model. Particularly advantageous is the computation of gradients using the reverse (or adjoint) mode of AD because its computational complexity is a small multiple of the cost of the original program for any size of gradient. AD by source transformation of the model’s program yields the most efficient adjoint computations.
+We will investigate challenges for computing derivatives of applications aiming at exascale performance. Data dependencies induced by parallel communications have an impact on the generated adjoint computation and will be a topic of our research. When a numerical model is implemented with asynchronous task parallelism, using graph-based schedulers, we can exploit this high-level view to rearrange the adjoint computation for increased efficiency. Intensive use of dynamic memory management is an important aspect of this topic that we will investigate. 
+Given limited resources, it is important for us to avoid duplication of effort. Therefore we will work to establish bridges between the AD tools developed by both teams, namely, OpenAD and Tapenade, to exploit their complementary strengths. The above research on adjoint parallel communications and dynamic memory management will be done in this context. 
+
+\paragraph{Results for current year}~\\
+
+The collaboration is starting.
+
+Timeline :\\
+M+6 : A library to handle the adjoint of dynamic memory management primitives.\\
+M+12 : An AD platform with two-way connection between OpenAD and Tapenade 
+
+Computer resource needs:\\
+   - No big resource needs. Possibly occasional access to a small cluster.
+
+Expected results:\\
+Joint publication on adjoint of dynamic memory management\\
+Report on the shared infrastructure for OpenAD and Tapenade
+
+
+%We are currently finish
+%Write a few paragraphs on main results for current year. Describe relevant publications here~\cite{aupy:hal-01147155}.
+
+\paragraph{Visits and meetings}~\\
+%List visits and meetings (planned and done).
+%Visits done:
+
+\paragraph{Impact and publications}~\\
+
+% print list of publications containing the ``own'' keyword (for publications done within this project and year)
+\printbibliography[heading=none,keyword=own]
+
+
+%\begin{itemize*}
+%    \item done this
+%    \item impact there
+%\end{itemize*}
+
+\paragraph{Person-Month efforts}~\\
+
+%This is very important for the JLESC activity report. 
+%Detail person-months spent by both permanent and temporary researchers 
+%who worked for the collaboration.
+\begin{itemize}
+	\item {\bf Laurent Hascouet}, permanent researcher, X months
+	\item {\bf ...}, ...
+\end{itemize}
+
+
+\paragraph{Future plans}~\\
+%Describe future plans here.
+
+
+\paragraph{References}~\\
+
+%Provide a few bibliographical references here.
+
+% print list of publications not from this project but of other relevance
+\printbibliography[heading=none,notkeyword=own]
+%\bibfile{mybeautifulproject}
+\end{refsection}

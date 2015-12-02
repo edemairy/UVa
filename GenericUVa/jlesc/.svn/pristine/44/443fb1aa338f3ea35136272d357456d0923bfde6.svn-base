@@ -1,0 +1,72 @@
+
+\subsubsection{In Situ Visualization of HPC Simulations using Dedicated Cores}
+\label{sec.report.GA1} % add label, replace xx with your initials
+
+% start new section for referencing, please use the name of your bibfile here instead of report2015 (.bib)
+\begin{refsection}[damaris]
+
+\paragraph{Participants}~\\
+
+Matthieu Dorier, Lokman Rahmani, Tom Peterka, Gabriel Antoniu, Roberto Sisneros
+
+\paragraph{Research topic and goals}~\\
+
+Large scale simulations running on leadership class supercomputers generate massive amounts of data for subsequent analysis and visualization. As the performance of storage systems shows its limits, an alternative consists of embedding visualization and analysis algorithms within the simulation (in situ visualization). Our goal within this context is to explore the potential benefit of using Damaris (\url{http://damaris.gforge.inria.fr/}), a middleware for I/O forwarding and post-processing using dedicated cores, to offload in situ visualization while sharing resources with the running simulation.
+
+
+\paragraph{Results for current year}~\\
+
+%Write a few paragraphs on main results for current year. Describe relevant publications here~\cite{j132,j133}.
+
+%\paragraph{Activity for 2014}
+
+\subparagraph{Sub-goals:} In situ visualization using Damaris/Viz still poses the problem of large amounts of data requiring to be processed at a high rate, while only a small part of the data might be of interest for the end user. Our goal is to improve Damaris/Viz by enabling an automated detection of interesting features in the datasets in order to reduce the visualization payload and thus, further improve the performance of in situ visualization.
+
+\subparagraph{Results:} To meet the above goal, we made use of ITL (Information Theory Library)~\cite{chaudhuri_ldav12} and DIY~\cite{peterka_ldav11} to help integrate the efficient computation of information theory based metrics. Implementation and evaluation are in progress on Grid'5000 and Blue Waters with various simulations including the CM1 tornado simulation~\cite{bryan2002benchmark}. A joint paper is in preparation on this topic.
+
+\paragraph{Visits and meetings}~\\
+
+\begin{itemize}
+\item June 2 - June 6: Rob Ross visited KerData in Rennes.
+\item June 9 - June 11: 11th workshop of the JLESC held in Nice, France.
+\item September 30 - December 23: Lokman Rahmani did an internship at Argonne National Laboratory.
+\item November 24 - November 26: Meetings for updates and planning were held during the 2nd JLESC workshop in Chicago.
+\end{itemize}
+
+\paragraph{Impact and publications}~\\
+
+% print list of publications containing the ``own'' keyword (for publications done within this project and year)
+\printbibliography[heading=none,keyword=own]
+
+\begin{itemize*}
+   \item  Demo by Matthieu Dorier at the Inria booth at SC'14.
+    \item Matthieu Dorier succesfully defended his PhD thesis, which includes several lines of work developed in the framework of the collaboration with JLESC. Damaris is at the core of his PhD work. For all his results, Matthieu was awarded the $2^{nd}$ Award of Rennes 1 Foundation for the Matisse Doctoral school.
+    \item An ADT proposal to fund a 2-year engioneer position for maintaining and improving Damaris has just been approved by Inria (2015-2017).
+    \item Further evolutions of Damaris will take place during the postdoc fellowship of Matthieu Dorier at Argonne National Lab, started in February 2015.
+\end{itemize*}
+
+\paragraph{Person-Month efforts}~\\
+
+%This is very important for the JLESC activity report. 
+%Detail person-months spent by both permanent and temporary researchers 
+%who worked for the collaboration.
+
+\begin{itemize}
+\item Gabriel Antoniu, Inria 1MM
+\item Matthieu Dorier, ENS Rennes 5MM
+\item Lokman Rahmani, ENS Rennes 4MM
+\item Roberto Sisneros, NCSA 1MM
+\item Tom Peterka, ANL 1MM
+\item Rob Ross, ANL 1MM
+\end{itemize}
+
+\paragraph{Future plans}~\\
+
+In situ approaches provide faster insight from the simulation and enable interactivity. They can be implemented using main memory (tight coupling between simulation and post-processing) or secondary storage (loose coupling). Both of the coupling modes have pros and cons, and neither is suitable for extreme-scale science. Tight coupling have the advantage of greater performance and less data moving, however, it is not resilient and the coupling is rigid. Loose coupling provides better resilience and more generic usage. We are looking for a solution that takes advantages of both of the coupling modes, while considering different criteria. The goal is to propose a generic, reusable and efficient platform for post-processing tasks scheduling and placement. Many optimization policies will be designed considering, mainly, storage throughput, data movement, time to solution and resilience.
+
+\paragraph{References}~\\
+
+% print list of publications not from this project but of other relevance
+\printbibliography[heading=none,notkeyword=own]
+
+\end{refsection}

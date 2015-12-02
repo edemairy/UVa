@@ -1,0 +1,93 @@
+\subsubsection{Programming Model Extensions for Resilience}
+\label{sec.report.pb3} % add label, replace xx with your initials
+
+\begin{refsection}[report2015_resilience]
+
+\paragraph{Participants}~\\
+
+\begin{itemize}
+\item Abdelhalim Amer, Argonne National Laboratory, Postdoctoral Appointee
+\item Pavan Balaji, Argonne National Laboratory, Computer Scientist
+\item Vicenc Beltran, Barcelona Supercomputing Center
+\item Marc Casas, Barcelona Supercomputing Center 
+\end{itemize}
+
+\paragraph{Research topic and goals}~\\
+
+The reliability of high performance computing systems is predicted to worsen
+given current technology trends, where several errors per day are expected to
+occur in exascale systems. Consequently, the software stack that target HPC
+systems needs to tolerate faults in order to cope with the instability of such
+systems. Particularly, current parallel programming models, which assume that
+applications will execute on failure-free systems, require resilience extensions.
+
+The most popular models used to program parallel systems are MPI for distributed
+memory and thread-based models, such as OpenMP, for shared-memory. Several works
+have studied fault-tolerance methods for MPI applications at the process level
+such as the User-Level Fault Mitigation (ULFM) effort at ANL. Recently, the
+need for finer-grained levels of resilience arose in the community because of
+the space and time overheads of coarse-grained approaches. Consequently,
+research in this direction has become more active leading to new methods
+such as the rollback-recovery method applied to asynchronous tasks in the OmpSs
+programming model.
+
+Despite recent advances, there exists no programming model that offers high
+degrees of resilience and low overheads for hybrid MPI+threads applications.
+This collaboration aims at providing resilience extensions for hybrid
+MPI+threads programming models at multiple levels. At the thread-level, errors
+are contained within the failing threads except if recovery is not possible, in
+which case propagating the failure to the MPI process will be necessary. The
+system then will rely on process-level fault-tolerance techniques to mitigate
+the failure.
+
+\paragraph{Results for current year}~\\
+
+There were interactions through telecon between the collaborators which involved
+discussions about ULFM for process-level resilience and the feasibility of
+thread-level fault-tolerance extensions.
+
+\paragraph{Visits and meetings}~\\
+
+There were frequent telecon meetings since the beginning of he collaboration.
+Planned visits: there are no planned visits yet.
+
+\paragraph{Impact and publications}~\\
+
+% print list of publications containing the ``own'' keyword (for publications
+% done within this project and year)
+\printbibliography[heading=none,keyword=own]
+
+Further impact \begin{itemize*} \item done this \item impact there
+\end{itemize*}
+
+\paragraph{Person-Month efforts}~\\
+
+Here we summarize the person-month efforts of the members involved in this
+project since the beginning of the collaboration.
+
+\begin{itemize}
+\item Abdelhalim Amer 0.5
+\item Pavan Balaji 1
+\item Vicenc Beltran 1
+\item Marc Casas 1
+\end{itemize}
+
+\paragraph{Future plans}~\\
+
+We plan to push further the investigation of fine-grained fault-tolerance
+support in hybrid MPI+threads programming models. The goal is to answer several
+open questions including, but not limited to, the degree of granularity suitable for
+the fine-grained level (threads or tasks), define the interaction between the
+coarse-grained and fine-grained levels of fault-tolerance, the way communication issued by a
+failed thread should be handled (flushed or ignored), and investigate the role and necessity of using
+robust synchronization mechanisms, such as robust mutexes, by the underlying
+multithreaded runtime system.
+
+\paragraph{References}~\\
+
+%Provide a few bibliographical references here.
+
+% print list of publications not from this project but of other relevance
+\printbibliography[heading=none,notkeyword=own]
+
+\end{refsection}

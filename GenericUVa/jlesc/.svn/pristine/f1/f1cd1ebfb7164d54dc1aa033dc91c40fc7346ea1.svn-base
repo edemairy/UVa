@@ -1,0 +1,63 @@
+% use keyword own to mark publications from this collaboration
+
+@techreport{aupy:hal-01147155,
+  TITLE = {{Optimal Multistage Algorithm for Adjoint Computation}},
+  AUTHOR = {Aupy, Guillaume and Herrmann, Julien and Hovland, Paul and Robert, Yves},
+  URL = {https://hal.inria.fr/hal-01147155},
+  TYPE = {Research Report},
+  NUMBER = {RR-8721},
+  INSTITUTION = {{LIP - ENS Lyon ; Argonne National Laboratory}},
+  YEAR = {2014},
+  MONTH = Apr,
+  PDF = {https://hal.inria.fr/hal-01147155/file/RR-8721.pdf},
+  HAL_ID = {hal-01147155},
+  HAL_VERSION = {v1},
+  keywords = {own}
+}
+
+@article{Heimbach20051356,
+title = "An efficient exact adjoint of the parallel {MIT} General Circulation Model, generated via automatic differentiation ",
+journal = "Future Generation Computer Systems ",
+volume = "21",
+number = "8",
+pages = "1356--1371",
+year = "2005",
+issn = "0167-739X",
+doi = "http://dx.doi.org/10.1016/j.future.2004.11.010",
+url = "http://www.sciencedirect.com/science/article/pii/S0167739X04001797",
+author = "Patrick Heimbach and Chris Hill and Ralf Giering",
+}
+
+@article{griewank1992achieving,
+  title={Achieving logarithmic growth of temporal and spatial complexity in reverse automatic differentiation},
+  author={Griewank, Andreas},
+  journal={Optimization Methods and software},
+  volume={1},
+  number={1},
+  pages={35--54},
+  year={1992},
+  publisher={Taylor \& Francis}
+}
+
+@article{griewank2000algorithm,
+  title={Algorithm 799: Revolve: an implementation of checkpointing for the reverse or adjoint mode of computational differentiation},
+  author={Griewank, Andreas and Walther, Andrea},
+  journal={ACM Transactions on Mathematical Software (TOMS)},
+  volume={26},
+  number={1},
+  pages={19--45},
+  year={2000},
+  publisher={ACM}
+}
+
+@article{stumm2009multistage,
+  title={Multistage approaches for optimal offline checkpointing},
+  author={Stumm, Philipp and Walther, Andrea},
+  journal={SIAM Journal on Scientific Computing},
+  volume={31},
+  number={3},
+  pages={1946--1967},
+  year={2009},
+  publisher={SIAM}
+}
+
